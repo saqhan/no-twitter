@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "no-twitter"
+    }
+  },
+  "defaultProject": "no-twitter",
+  "cli": {
+    "analytics": "788c865c-9054-4884-925f-5b4d0caeef35"
+  }
 }

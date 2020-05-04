@@ -1,1 +1,37 @@
-<p>content works!</p>
+<div class="row">
+  <div class="col pt-3 pb-3 border-bottom text-center"><span class="text-danger" >no-</span><span class="text-primary">twitter</span></div>
+</div>
+<div class="row  " >
+  <div class="col pt-3 d-flex justify-content-between align-items-center small">
+    <div class="align-items-center">
+        <a href="#" class="text-danger d-flex align-items-center" (click)="toggleOnlyFavorite()">
+          <span class="material-icons fon">list</span> все твиты
+        </a>
+    </div>
+    <div class="favorite-twitter">
+        <a href="#" class="text-primary d-flex align-items-center" (click)="toggleOnlyFavorite()">
+          <span class="material-icons">favorite</span> {{ isOnlyFavorite() ? 'показать все' : 'мои любимые'}}
+        </a>
+    </div>
+  </div>
+</div>
+<div class="row pt-3 ">
+  <div class="col">
+      <div class="text-muted text-center" *ngIf="getMessages().length === 0">
+        Здесь пока ничего нет
+      </div>
+      <div class="mess-card border-bottom pb-2 pt-2" *ngFor="let message of getMessages()" >
+        <div class="d-flex">
+          <div class="avatar"> <img src={{message.img}} /> </div>
+          <div class="message mt-1"> {{message.mess}} </div>
+        </div>
+        <div class="like-mess">
+          <a href="#" class="text-primary text-muted" (click)="toggleFavorite(message.id)">
+           <div *ngIf="message.favorite"> <span class="material-icons">favorite</span> больше не нравится</div>
+            <div *ngIf="!message.favorite"> <span class="material-icons">favorite_border</span> мне нравится</div>
+          </a>
+        </div>
+      </div>
+  </div>
+
+</div>
