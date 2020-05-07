@@ -17,11 +17,21 @@ export class StoreTwitterService {
 
   onlyFavorite = false;
 
-  toggleAll = true;
+
+
+  active = false;
 
   toggleOnlyFavorite() {
-    this.onlyFavorite = !this.onlyFavorite;
+    this.onlyFavorite = true;
+    this.active = true;
   }
+
+  toggleAll() {
+    this.onlyFavorite = false;
+    this.active = !this.active ;
+  }
+
+
 
   getMessage() {
     let messages;
@@ -29,8 +39,8 @@ export class StoreTwitterService {
     if (this.onlyFavorite){
       return  messages = this.messages.filter(mess => mess.favorite);
     }
-    if (this.toggleAll){
-      return this.messages;
+    else {
+      return messages = this.messages;
     }
   }
 

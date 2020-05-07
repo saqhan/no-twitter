@@ -10,6 +10,10 @@ export class ContentComponent implements OnInit {
 
   constructor( private service: StoreTwitterService ) { }
 
+  isActive(){
+    return this.service.active;
+  }
+
   getMessages(){
     return this.service.getMessage();
   }
@@ -17,15 +21,14 @@ export class ContentComponent implements OnInit {
   toggleOnlyFavorite(){
     this.service.toggleOnlyFavorite();
   }
-  isOnlyFavorite(){
-    return  this.service.onlyFavorite;
+
+  toggleAll(){
+    this.service.toggleAll();
   }
 
   toggleFavorite(id){
     this.service.toggleFavorite(id);
   }
-
-
 
   ngOnInit(): void {
   }
